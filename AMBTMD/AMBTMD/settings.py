@@ -37,6 +37,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'accApp.apps.AccappConfig',
+    'Base.apps.BaseConfig',
+    'mode_dete.apps.ModeDeteConfig',
+    'crispy_forms',
 ]
 
 MIDDLEWARE = [
@@ -54,7 +58,7 @@ ROOT_URLCONF = 'AMBTMD.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [BASE_DIR / 'templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -98,8 +102,7 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
-
-
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
 # Internationalization
 # https://docs.djangoproject.com/en/4.1/topics/i18n/
 
