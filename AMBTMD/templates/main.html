@@ -1,28 +1,68 @@
 {% load crispy_forms_tags %}
+
 <!DOCTYPE html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
 <html>
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>home</title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="">
-    </head>
-    <body>
-        <label for="fileSelect">Spreadsheet</label>
-        {% comment %} <input id="fileSelect" type="file" accept=".csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel" />
-        <input type="submit" value="submit" /> {% endcomment %}
-        <h2>Upload a CSV file</h2>
-        <form method="POST" enctype="multipart/form-data">
-            {% csrf_token %}
-            {{ form.as_p }}
-            <button type="submit">Upload</button>
-        </form>
-        <script src="" async defer></script>
-    </body>
+  <head>
+    <meta charset="UTF-8">
+    <title>File Upload</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f1f1f1;
+      }
+      .container {
+        max-width: 500px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #fff;
+        border-radius: 4px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+      }
+      h1 {
+        text-align: center;
+        margin-top: 0;
+      }
+      form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      label {
+        font-weight: bold;
+        margin-bottom: 10px;
+      }
+      input[type="file"] {
+        padding: 10px;
+        border: 2px solid #ccc;
+        border-radius: 4px;
+        width: 100%;
+        margin-bottom: 20px;
+        box-sizing: border-box;
+      }
+      button[type="submit"] {
+        background-color: #4CAF50;
+        color: #fff;
+        padding: 10px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 16px;
+        margin-top: 20px;
+      }
+      button[type="submit"]:hover {
+        background-color: #3e8e41;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>File Upload</h1>
+      <form method="post" enctype="multipart/form-data">
+        <label for="file">Select a file:</label>
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Upload</button>
+      </form>
+    </div>
+  </body>
 </html>
